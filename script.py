@@ -24,19 +24,22 @@ os.chdir('profiles')
 
 rootDir = '.'
 for dirName, subdirList, fileList in os.walk(rootDir):
+    print(dirName)
     filePath = os.path.join(rootDir, dirName)
-    os.chdir('%s' % filePath)
+    os.chdir('%s' % subdirList[1])
     print(os.getcwd())
-    for fname in fileList:
-        print('\t%s' % fname)
-        with io.open(fname,'rb') as image_file:
-            content = image_file.read()
-            image = vision_client.image(content=content)
-            labels = image.detect_labels()
-            logos = image.detect_logos()
+    for i in subdirList:
+        for dirName, subdirList, fileList in os.walk(rootDir):
+            for fname in fileList:
+                print('\t%s' % fname)
+                with io.open(fname,'rb') as image_file:
+                    content = image_file.read()
+                    image = vision_client.image(content=content)
+                    labels = image.detect_labels()
+                    logos = image.detect_logos()
 
-            for label in labels:
-               print(label.description)
+                    for label in labels:
+                       print(label.description)
 
 
 
