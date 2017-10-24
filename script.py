@@ -14,7 +14,7 @@ for row in reader:
 
 
 os.system('cd profiles')
-os.system('instagram-scraper %s' % (profileNameList))
+os.system('instagram-scraper %s' % (str(profileNameList)[1:-1]))
 
 
 #os.system('instagram-scraper {profilename}')
