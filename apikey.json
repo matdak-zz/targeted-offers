@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "targeted-offers",
+  "private_key_id": "2f97ca68e678955824dfe672bfb29e9a7ad03d99",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDU6+fbkY9NgPbr\nSXFeYa69PEXgIG21iivEb9vqgrW7fGPCflgJCbvPAEQKnBtYn7Et7Er49kE/hNlV\nrn2ygaTq+1gESyEsDNxeUtSxOqPfxRvyxrkqY4evlJyM6nXYtLU723asysPtie0A\n5Txozvydm760039XI/a0lggpsA3iAr4kOIrLw8TAFcYn8QnjEHGqkXg2mTR693I1\na/xfBwJqiIadJhCfv7m88LDNhpistS67GVKcr2LsD6o52cR4NblCRgQGtrDK+1hH\n/jCoYIrGsyCOL2LbpispR7KAKQtH5z3ncpMjfJk3LSdQZYU4e3FAKtGtRNFLJXaH\n2NxLxZeHAgMBAAECggEAE+24l8558TEe60rGd6UA6+lWSPIAErvJ+OrXVI3DYLb1\nx2B38PCeSXOm6q9Nx++6b6fsJH04Ai/2/5QDY8/KlcvMoyo9Aph5j8KE8cmhSPJz\n+TcsYZFLQ93PAUl4mj3fsKiL5QRdbkA4lJrgGpc1AbNwGBCrnIZbMu/P98bopbyc\nGNJm0odT+FrPoa+oOhLSHkX0xrHLASBX1J3/t+s+q14LIRvVNQF7Eb3wDYy32HVm\nvmAnZj+9Do7IBNkpWNRzmBxP/VNiPGTO13tYsOdtrVSz4lhG0+eqaCXm6NitxmK/\n5S7bo2k7odXNv8ChsSkqttK/Pyj93M/dD5iikMRlsQKBgQD/r14JlMWwAUeI3zK9\nychlfFJdV0QBd3WuC+1vgk2BrA97wufQz19cZdBKN9p5uMGr7OIpjQiJC95Shzi9\nUChNH7wcfOJxOOCzncPY3ZuXgCGRgWSRUpkyHwJxAiecqqaXJk7ArT2Ge65GOYCc\nHZ9zMVbGhrp+H24mDmRcWgETNQKBgQDVLw1vkGG48UWZ1KraQg3cjrvY/PDMZEZh\nNgWW4caqnrmLGLivdfNZyJpGOFJVU2NPOxr1CwNyh04IKsZ/WjnPcJYWNngzOgAh\nxe6Lsw8hUad14cyFvN1MhF+BJeEahDCdEyihCXMdSdWJodrAIVWHXXqPyXZVRARc\nmZp4tSD7SwKBgQCaMcUxXAIYUb01Qv2TzTPIWEBHwE/n3oYer1zCib96OyyfQ3yP\nxe/JhjEmAScFjzFlIJeH3WDPXVP3S0shiEy1rjTArWPWSingyH0KtSKXLBOSb4kZ\nxslSm7baNiVzasrKjrShqBhZmQ8RlK4F+CtnydJ+KVQgqY3A758Avtq1HQKBgQC8\n4NhlnSWH53SEK9FIWTfQz0GNqeVrIfjdTjC7ksQjDUhU/g07oCSAyuQtDN+dq6kU\nXMiwjRZ71XeEcum1keogaZ8AhTgQIvZU9fo5Gedw3Nii7/D2GPR1Q98eHMKJbM9p\ni7z2mNm9/FnOfHHEwoP10BOz64oFV6MJrCoZgll7awKBgQDNRyV545k086bw2tCs\n68hvAq9FOUA6+zHgLDWbko3X6aYtA0XtVCepf7YSHew+aR2MIrX6lzTP1AV7mfvh\nHlgIGompbE6nb5TqeOC/ydVl9DHKQa1LHdVotHBdDqD1wGkU4T/x/vO31a8bfqdd\noZWqnDfwFKBrnaPb6eW7zRCs1A==\n-----END PRIVATE KEY-----\n",
+  "client_email": "matdak@targeted-offers.iam.gserviceaccount.com",
+  "client_id": "117511434152834456884",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/matdak%40targeted-offers.iam.gserviceaccount.com"
+}

@@ -19,27 +19,31 @@ for row in reader:
 
 os.chdir('profiles')
 
-#os.system('instagram-scraper %s' % (str(profileNameList)[1:-1]))
+os.system('instagram-scraper %s' % (str(profileNameList)[1:-1]))
 
 
 rootDir = '.'
 for dirName, subdirList, fileList in os.walk(rootDir):
     print(dirName)
     filePath = os.path.join(rootDir, dirName)
-    os.chdir('%s' % subdirList[1])
-    print(os.getcwd())
-    for i in subdirList:
-        for dirName, subdirList, fileList in os.walk(rootDir):
-            for fname in fileList:
-                print('\t%s' % fname)
-                with io.open(fname,'rb') as image_file:
-                    content = image_file.read()
-                    image = vision_client.image(content=content)
-                    labels = image.detect_labels()
-                    logos = image.detect_logos()
 
-                    for label in labels:
-                       print(label.description)
+    print(os.getcwd())
+    subdirList[:] = [d for d in subdirList if not d.startswith('.') and not d.startswith('instagram-scraper')]
+
+    for fname in fileList:
+        fileList[:] = [f for f in fileList if not f.startswith('.') and not f.startswith('instagram-scraper')]
+
+        filePath = os.path.join(dirName, fname)
+
+        print('\t%s' % filePath)
+        with io.open(filePath,'rb') as image_file:
+            content = image_file.read()
+            image = vision_client.image(content=content)
+            labels = image.detect_labels()
+            logos = image.detect_logos()
+
+            for label in labels:
+                print(label.description)
 
 
 
