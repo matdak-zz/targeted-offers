@@ -81,7 +81,7 @@ for dirName, subdirList, fileList in os.walk(rootDir):
             with Image.open(imagePath) as img:
                 img.show()
 
-        if 'travel' in text and travelCounter == 0:
+        if 'travel' or 'New York' in text and travelCounter == 0:
             imagePath = '/users/mattvukojevic/documents/github/targeted-offers/travel.jpg'
             profileAdPath = '/users/mattvukojevic/documents/github/targeted-offers/profiles/%s' % dirName[2:]
             shutil.copy2(imagePath, profileAdPath)
