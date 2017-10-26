@@ -3,11 +3,14 @@ import csv
 import io
 from google.cloud import vision
 from PIL import Image
+import shutil
 
 file =  open ('DataMiner.csv', newline = '')
 reader = csv.reader(file)
 header = next(reader)
 vision_client = vision.Client()
+travelCounter = 0
+graduationCounter = 0
 
 rootdir = '/users/mattvukojevic/documents/github/targeted-offers'
 profileNameList = []
@@ -39,24 +42,53 @@ for dirName, subdirList, fileList in os.walk(rootDir):
             image = vision_client.image(content=content)
             labels = image.detect_labels()
             logos = image.detect_logos()
+            text = image.detect_text()
+            landmarks = image.detect_landmarks()
 
             for label in labels:
                 print(label.description)
-                print(dirName)
-                print(os.getcwd())
                 labelDesc = label.description
-                path = '/users/mattvukojevic/documents/github/targeted-offers/profiles/%s/%s.txt' % (dirName[2:], dirName[2:])
+                path = '/users/mattvukojevic/documents/github/targeted-offers/profiles/%s/%s-labels.txt' % (dirName[2:], dirName[2:])
                 with open (path, 'a') as f:
-                    f.write('%s, ' % labelDesc)
+                    f.write('Label Detected: %s, ' % labelDesc)
 
-        newPath = '/users/mattvukojevic/documents/github/targeted-offers/profiles/%s/%s.txt' % (dirName[2:], dirName[2:])
+            for text in text:
+                print(text.description)
+                textDesc = text.description
+                secondPath = '/users/mattvukojevic/documents/github/targeted-offers/profiles/%s/%s-text.txt' % (dirName[2:], dirName[2:])
+                with open (path, 'a') as f:
+                    f.write('Text Detected: %s, ' % textDesc)
+
+            for logo in logos:
+                print(logo.description)
+                logoDesc = logo.description
+                secondPath = '/users/mattvukojevic/documents/github/targeted-offers/profiles/%s/%s-text.txt' % (dirName[2:], dirName[2:])
+                with open (path, 'a') as f:
+                    f.write('Logo Detected: %s, ' % logoDesc)
+
+            for landmark in landmarks:
+                print(landmark.description)
+                landmarkDesc = landmark.description
+                secondPath = '/users/mattvukojevic/documents/github/targeted-offers/profiles/%s/%s-text.txt' % (dirName[2:], dirName[2:])
+                with open (path, 'a') as f:
+                    f.write('Landmark Detected: %s, ' % landmarkDesc)
+
+        newPath = '/users/mattvukojevic/documents/github/targeted-offers/profiles/%s/%s-labels.txt' % (dirName[2:], dirName[2:])
         t = open(newPath,'r')
-        #while True:
         text = t.readline()
-        counter = 0
-        if 'travel' in text:
-            imagePath = '/users/mattvukojevic/documents/github/targeted-offers/aventura.jpg'
-            if counter == 0:
-                counter += 1
-                with Image.open(imagePath) as img:
-                    img.show()
+
+        if 'travel' in text and travelCounter == 0:
+            imagePath = '/users/mattvukojevic/documents/github/targeted-offers/travel.jpg'
+            profileAdPath = '/users/mattvukojevic/documents/github/targeted-offers/profiles/%s' % dirName[2:]
+            shutil.copy2(imagePath, profileAdPath)
+            travelCounter += 1
+            with Image.open(imagePath) as img:
+                img.show()
+
+        if 'graduation' in text and graduationCounter == 0:
+            imagePath = '/users/mattvukojevic/documents/github/targeted-offers/graduation.jpg'
+            profileAdPath = '/users/mattvukojevic/documents/github/targeted-offers/profiles/%s' % dirName[2:]
+            shutil.copy2(imagePath, profileAdPath)
+            graduationCounter += 1
+            with Image.open(imagePath) as img:
+                img.show()
