@@ -2,6 +2,7 @@ import os
 import csv
 import io
 from google.cloud import vision
+from PIL import Image
 
 file =  open ('DataMiner.csv', newline = '')
 reader = csv.reader(file)
@@ -47,3 +48,15 @@ for dirName, subdirList, fileList in os.walk(rootDir):
                 path = '/users/mattvukojevic/documents/github/targeted-offers/profiles/%s/%s.txt' % (dirName[2:], dirName[2:])
                 with open (path, 'a') as f:
                     f.write('%s, ' % labelDesc)
+
+        newPath = '/users/mattvukojevic/documents/github/targeted-offers/profiles/%s/%s.txt' % (dirName[2:], dirName[2:])
+        t = open(newPath,'r')
+        #while True:
+        text = t.readline()
+        counter = 0
+        if 'travel' in text:
+            imagePath = '/users/mattvukojevic/documents/github/targeted-offers/aventura.jpg'
+            if counter == 0:
+                counter += 1
+                with Image.open(imagePath) as img:
+                    img.show()
